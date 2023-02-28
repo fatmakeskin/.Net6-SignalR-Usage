@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using SignalR_Server.Business;
+using SignalR_Server.Hubs;
 
 namespace SignalR_Server.Controllers
 {
@@ -9,9 +11,11 @@ namespace SignalR_Server.Controllers
     public class MsgController : ControllerBase
     {
         private readonly MessageBusiness _messageBusiness;
-        public MsgController(MessageBusiness messageBusiness)
+        private readonly IHubContext<MessageHub> _hubContext;
+        public MsgController(MessageBusiness messageBusiness, IHubContext<MessageHub> hubContext)
         {
             _messageBusiness = messageBusiness;
+            _hubContext = hubContext;
         }
         [HttpGet("message")]
         public async Task<IActionResult> Index(string message)

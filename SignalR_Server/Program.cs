@@ -33,7 +33,7 @@ app.UseRouting();
 app.UseEndpoints(endpoints =>
 {
     //https://localhost:7229/MessageHub
-    endpoints.MapHub<MessageHub>("/MessageHub");
+    endpoints.MapHub<MessageHub>("/messagehub");
     endpoints.MapControllers();
 });
 

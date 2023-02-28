@@ -4,7 +4,7 @@
  <script>
     $(document).ready(() =>{
      const connection= new signalR.HubConnectionBuilder()
-     .withUrl("https://localhost:7229/MessageHub/")
+     .withUrl("https://localhost:7229/messagehub/")
      .withAutomaticReconnect([1000,1000,2000]) //0-2-10-30 sn arası dener. baglantı koparsa tekrardan otomantik olarak baglantı talebi olusturur.
      .build();
 
